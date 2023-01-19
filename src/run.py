@@ -1,3 +1,12 @@
-from dide.dide import load_images
+from flask import Flask, request
 
-load_images()
+app = Flask(__name__)
+
+@app.route("/api/classify/", methods=["POST", "GET"])
+def classify():
+    return request.url
+
+
+@app.route("/")
+def index_test():
+    return "Test"
