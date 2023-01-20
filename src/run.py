@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pickle
 import cv2
 import numpy as np
 from os import listdir
 
 app = Flask(__name__)
-app.debug = True
+CORS(app)
 model = pickle.load(open("models/dide1.pkl", 'rb'))
 
 label = list(listdir("data/PlantVillage"))
